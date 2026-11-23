@@ -1,0 +1,38 @@
+
+:root {
+    /* Primary colors */
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+
+    /* Sidebar */
+    --sidebar-bg: #1f2937;
+    --sidebar-text: #f3f4f6;
+    --sidebar-muted: #cbd5e1;
+    --sidebar-active: #3498db;
+
+    /* Main layout */
+    --page-bg: #f3f4f6;
+    --card-bg: #ffffff;
+
+    /* Text */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+
+    /* Borders */
+    --border-color: #e5e7eb;
+
+    /* Status colors */
+    --success-color: #16a34a;
+    --warning-color: #f59e0b;
+    --danger-color: #e74c3c;
+
+    /* Shadows */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    /* Layout */
+    --sidebar-width: 258px;
+
+    /* Radius */
+    --border-radius: 12px;
+    --button-radius: 8px;
+}
