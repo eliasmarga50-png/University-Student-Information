@@ -4,6 +4,7 @@
 @import url("./dashboard.css");
 @import url("./students.css");
 @import url("./courses.css");
+@import url("./registration.css");
 
 * {
     box-sizing: border-box;

@@ -2,6 +2,7 @@
 import { renderDashboard } from "./pages/dashboard.js";
 import { renderStudents } from "./pages/students.js";
 import { renderCourses } from "./pages/courses.js";
+import { renderRegistration } from "./pages/registration.js";
 
 const pageTitles = {
     dashboard: "Dashboard",
@@ -37,6 +38,8 @@ function changePage(page) {
         renderStudents();
     } else if (page === "courses") {
         renderCourses();
+    } else if (page === "registration") {
+        renderRegistration();
     } else {
         pageContent.innerHTML = `
             <div class="dashboard-placeholder">
