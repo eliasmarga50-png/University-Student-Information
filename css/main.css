@@ -2,6 +2,7 @@
 @import url("./variables.css");
 @import url("./layout.css");
 @import url("./dashboard.css");
+@import url("./students.css");
 
 * {
     box-sizing: border-box;

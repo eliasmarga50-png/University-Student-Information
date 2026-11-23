@@ -31,6 +31,38 @@ export let students = [
         department: "Information Systems",
         year: "Year 1",
         email: "hana@example.com"
+    },
+    {
+        id: "ST005",
+        name: "Meron Alemu",
+        gender: "Female",
+        department: "Computer Science",
+        year: "Year 2",
+        email: "meron@example.com"
+    },
+    {
+        id: "ST006",
+        name: "Yonas Girma",
+        gender: "Male",
+        department: "Information Technology",
+        year: "Year 3",
+        email: "yonas@example.com"
+    },
+    {
+        id: "ST007",
+        name: "Sara Mohammed",
+        gender: "Female",
+        department: "Software Engineering",
+        year: "Year 1",
+        email: "sara@example.com"
+    },
+    {
+        id: "ST008",
+        name: "Mekdes Tesfaye",
+        gender: "Female",
+        department: "Information Systems",
+        year: "Year 4",
+        email: "mekdes@example.com"
     }
 ];
 

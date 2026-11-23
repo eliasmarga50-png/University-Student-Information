@@ -1,0 +1,256 @@
+
+.students-page {
+    width: 100%;
+}
+
+.students-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.students-title h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.students-title p {
+    margin: 6px 0 0;
+    color: var(--text-secondary);
+}
+
+.add-student-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+.add-student-button:hover {
+    background-color: #2980b9;
+}
+
+.students-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+}
+
+.students-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.students-controls input,
+.students-controls select {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+}
+
+.students-controls input {
+    flex: 1;
+}
+
+.students-controls input:focus,
+.students-controls select:focus {
+    border-color: #3498db;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.students-table th {
+    background-color: #f8fafc;
+    padding: 14px 12px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.students-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.students-table tr:hover {
+    background-color: #f9fafb;
+}
+
+.students-table th:first-child,
+.students-table td:first-child {
+    white-space: nowrap;
+}
+
+.edit-button,
+.delete-button {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.edit-button {
+    background-color: #f39c12;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #d68910;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.no-students {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+}
+
+.students-count {
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.cancel-button,
+.save-button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+}
+
+.cancel-button {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.save-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #2980b9;
+}
+
+#modal-container {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-box {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #6b7280;
+}
+
+@media screen and (max-width: 900px) {
+    .students-controls {
+        flex-direction: column;
+    }
+
+    .students-controls input,
+    .students-controls select {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .students-title {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .students-card {
+        padding: 14px;
+    }
+
+    .modal-box {
+        padding: 18px;
+    }
+}
