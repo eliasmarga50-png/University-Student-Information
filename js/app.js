@@ -1,68 +1,73 @@
 
 import { renderDashboard } from "./pages/dashboard.js";
 import { renderStudents } from "./pages/students.js";
+import { renderCourses } from "./pages/courses.js";
 
-function displayCurrentDate() {
-    const dateElement = document.getElementById("current-date");
-
-    const today = new Date();
-
-    const date = today.toLocaleDateString("en-US", {
-        weekday: "short",
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-    });
-
-    dateElement.textContent = date;
-}
+const pageTitles = {
+    dashboard: "Dashboard",
+    students: "Students",
+    courses: "Courses",
+    registration: "Course Registration",
+    attendance: "Attendance",
+    results: "Results & Grades",
+    fees: "Fees Management",
+    library: "Library Management",
+    reports: "Reports"
+};
 
 function changePage(page) {
-    const links = document.querySelectorAll(".nav-link");
+    const pageContent = document.getElementById("page-content");
     const headerTitle = document.getElementById("header-title");
 
-    for (let i = 0; i < links.length; i++) {
-        links[i].classList.remove("active");
+    document.querySelectorAll(".nav-link").forEach(function(link) {
+        link.classList.remove("active");
+    });
+
+    const activeLink = document.querySelector(`[data-page="${page}"]`);
+
+    if (activeLink) {
+        activeLink.classList.add("active");
     }
 
-    const selectedLink = document.querySelector(`[data-page="${page}"]`);
-
-    if (selectedLink) {
-        selectedLink.classList.add("active");
-    }
+    headerTitle.textContent = pageTitles[page] || "Student Information System";
 
     if (page === "dashboard") {
-        headerTitle.textContent = "📊 Dashboard";
         renderDashboard();
     } else if (page === "students") {
-        headerTitle.textContent = "👨‍🎓 Students";
         renderStudents();
+    } else if (page === "courses") {
+        renderCourses();
     } else {
-        headerTitle.textContent = selectedLink.textContent.trim();
-
-        document.getElementById("page-content").innerHTML = `
+        pageContent.innerHTML = `
             <div class="dashboard-placeholder">
-                <h3>${selectedLink.textContent.trim()}</h3>
-                <p>This section will be implemented in a later commit.</p>
+                <h2>${pageTitles[page]}</h2>
+                <p>This section will be implemented in a future step.</p>
             </div>
         `;
     }
 }
 
 function initializeApp() {
-    displayCurrentDate();
+    const currentDate = document.getElementById("current-date");
 
-    const links = document.querySelectorAll(".nav-link");
+    if (currentDate) {
+        currentDate.textContent = new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+    }
 
-    for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener("click", function(event) {
+    document.querySelectorAll(".nav-link").forEach(function(link) {
+        link.addEventListener("click", function(event) {
             event.preventDefault();
 
-            const page = this.getAttribute("data-page");
+            const page = link.dataset.page;
 
             changePage(page);
         });
-    }
+    });
 
     renderDashboard();
 }
