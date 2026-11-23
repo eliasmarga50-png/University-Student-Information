@@ -5,6 +5,7 @@
 @import url("./students.css");
 @import url("./courses.css");
 @import url("./registration.css");
+@import url("./attendance.css");
 
 * {
     box-sizing: border-box;

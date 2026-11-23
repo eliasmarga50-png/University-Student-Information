@@ -3,13 +3,14 @@ import { renderDashboard } from "./pages/dashboard.js";
 import { renderStudents } from "./pages/students.js";
 import { renderCourses } from "./pages/courses.js";
 import { renderRegistration } from "./pages/registration.js";
+import { renderAttendance } from "./pages/attendance.js";
 
 const pageTitles = {
     dashboard: "Dashboard",
     students: "Students",
     courses: "Courses",
     registration: "Course Registration",
-    attendance: "Attendance",
+    attendance: "Attendance Management",
     results: "Results & Grades",
     fees: "Fees Management",
     library: "Library Management",
@@ -40,6 +41,8 @@ function changePage(page) {
         renderCourses();
     } else if (page === "registration") {
         renderRegistration();
+    } else if (page === "attendance") {
+        renderAttendance();
     } else {
         pageContent.innerHTML = `
             <div class="dashboard-placeholder">

@@ -19,6 +19,8 @@ export let courses = [
 
 export let registrations = [];
 
+export let attendance = [];
+
 export let results = [];
 
 export let fees = [];
