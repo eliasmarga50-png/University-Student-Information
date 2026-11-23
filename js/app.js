@@ -1,4 +1,6 @@
 
+import { renderDashboard } from "./pages/dashboard.js";
+
 function displayCurrentDate() {
     const dateElement = document.getElementById("current-date");
 
@@ -16,6 +18,7 @@ function displayCurrentDate() {
 
 function initializeApp() {
     displayCurrentDate();
+    renderDashboard();
 }
 
 initializeApp();
