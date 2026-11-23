@@ -24,3 +24,49 @@ export let attendance = [];
 export let results = [];
 
 export let fees = [];
+
+
+export let books = [
+    {
+        id: "BK001",
+        title: "Introduction to Programming",
+        author: "John Smith",
+        category: "Computer Science",
+        copies: 5,
+        available: 5
+    },
+    {
+        id: "BK002",
+        title: "Database Systems",
+        author: "Thomas Connolly",
+        category: "Computer Science",
+        copies: 4,
+        available: 4
+    },
+    {
+        id: "BK003",
+        title: "Computer Networks",
+        author: "Andrew Tanenbaum",
+        category: "Information Technology",
+        copies: 3,
+        available: 3
+    },
+    {
+        id: "BK004",
+        title: "Software Engineering",
+        author: "Ian Sommerville",
+        category: "Software Engineering",
+        copies: 4,
+        available: 4
+    },
+    {
+        id: "BK005",
+        title: "Clean Code",
+        author: "Robert C. Martin",
+        category: "Programming",
+        copies: 2,
+        available: 2
+    }
+];
+
+export let borrowings = [];

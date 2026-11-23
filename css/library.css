@@ -1,0 +1,375 @@
+.library-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.library-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.library-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.library-stat-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.library-stat-card h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+}
+
+.library-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.books-icon {
+    background: #dbeafe;
+}
+
+.copies-icon {
+    background: #e0e7ff;
+}
+
+.available-icon {
+    background: #dcfce7;
+}
+
+.borrowed-icon {
+    background: #fef3c7;
+}
+
+.library-section {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.library-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.library-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.library-section-header h2 {
+    margin-bottom: 0;
+}
+
+.library-primary-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.library-primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.library-secondary-btn {
+    background: #e5e7eb;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.book-form {
+    padding: 20px;
+    background: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.book-form.hidden {
+    display: none;
+}
+
+.book-form h3 {
+    margin-bottom: 18px;
+}
+
+.book-form-grid,
+.borrow-form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.book-form .form-group,
+.borrow-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.book-form label,
+.borrow-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.book-form input,
+.borrow-form input,
+.borrow-form select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+}
+
+.book-form input:focus,
+.borrow-form input:focus,
+.borrow-form select:focus {
+    border-color: var(--primary-color);
+}
+
+.book-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.library-toolbar {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.library-toolbar input,
+.library-toolbar select {
+    padding: 11px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    background: white;
+}
+
+.library-toolbar input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.library-toolbar input:focus,
+.library-toolbar select:focus {
+    border-color: var(--primary-color);
+}
+
+.library-table-container {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.library-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.library-table th,
+.library-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.library-table th {
+    background: #f9fafb;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.library-table td {
+    color: var(--text-primary);
+}
+
+.library-table td strong,
+.library-table td small {
+    display: block;
+}
+
+.library-table td small {
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.library-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.library-actions button {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-book-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.delete-book-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.availability-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.availability-badge.not-available {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.borrow-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.borrow-form-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.return-book-btn {
+    background: #dcfce7;
+    color: #166534;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.return-book-btn:hover {
+    background: #bbf7d0;
+}
+
+.returned-label {
+    color: #16a34a;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.borrowing-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.borrowing-borrowed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.borrowing-returned {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.borrowing-overdue {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.library-empty {
+    text-align: center !important;
+    padding: 30px !important;
+    color: var(--text-secondary) !important;
+}
+
+.library-record-count {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 14px;
+}
+
+@media (max-width: 1100px) {
+    .library-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .book-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .library-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .book-form-grid,
+    .borrow-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .library-section {
+        padding: 16px;
+    }
+
+    .library-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .library-toolbar {
+        flex-direction: column;
+    }
+
+    .library-toolbar input,
+    .library-toolbar select {
+        width: 100%;
+    }
+}

@@ -5,11 +5,13 @@ import { renderCourses } from "./pages/courses.js";
 import { renderRegistration } from "./pages/registration.js";
 import { renderAttendance } from "./pages/attendance.js";
 import { renderResults } from "./pages/results.js";
+import { renderFees } from "./pages/fees.js";
+import { renderLibrary } from "./pages/library.js";
 
 const pageTitles = {
     dashboard: "Dashboard",
-    students: "Students",
-    courses: "Courses",
+    students: "Student Management",
+    courses: "Course Management",
     registration: "Course Registration",
     attendance: "Attendance Management",
     results: "Results & Grades",
@@ -19,48 +21,71 @@ const pageTitles = {
 };
 
 function changePage(page) {
-    const pageContent = document.getElementById("page-content");
     const headerTitle = document.getElementById("header-title");
+    const pageContent = document.getElementById("page-content");
 
-    document.querySelectorAll(".nav-link").forEach(function(link) {
+    headerTitle.textContent = pageTitles[page] || "Dashboard";
+
+    document.querySelectorAll(".nav-link").forEach(link => {
         link.classList.remove("active");
+
+        if (link.dataset.page === page) {
+            link.classList.add("active");
+        }
     });
 
-    const activeLink = document.querySelector(`[data-page="${page}"]`);
+    switch (page) {
+        case "dashboard":
+            renderDashboard();
+            break;
 
-    if (activeLink) {
-        activeLink.classList.add("active");
-    }
+        case "students":
+            renderStudents();
+            break;
 
-    headerTitle.textContent = pageTitles[page] || "Student Information System";
+        case "courses":
+            renderCourses();
+            break;
 
-    if (page === "dashboard") {
-        renderDashboard();
-    } else if (page === "students") {
-        renderStudents();
-    } else if (page === "courses") {
-        renderCourses();
-    } else if (page === "registration") {
-        renderRegistration();
-    } else if (page === "attendance") {
-        renderAttendance();
-    } else if (page === "results") {
-        renderResults();
-    } else {
-        pageContent.innerHTML = `
-            <div class="dashboard-placeholder">
-                <h2>${pageTitles[page]}</h2>
-                <p>This section will be implemented in a future step.</p>
-            </div>
-        `;
+        case "registration":
+            renderRegistration();
+            break;
+
+        case "attendance":
+            renderAttendance();
+            break;
+
+        case "results":
+            renderResults();
+            break;
+
+        case "fees":
+            renderFees();
+            break;
+
+        case "library":
+            renderLibrary();
+            break;
+
+        case "reports":
+            pageContent.innerHTML = `
+                <div class="placeholder-page">
+                    <h2>Reports</h2>
+                    <p>Reports module will be implemented in Commit 10.</p>
+                </div>
+            `;
+            break;
+
+        default:
+            renderDashboard();
     }
 }
 
 function initializeApp() {
-    const currentDate = document.getElementById("current-date");
+    const dateElement = document.getElementById("current-date");
 
-    if (currentDate) {
-        currentDate.textContent = new Date().toLocaleDateString("en-US", {
+    if (dateElement) {
+        dateElement.textContent = new Date().toLocaleDateString("en-US", {
             weekday: "long",
             year: "numeric",
             month: "long",
@@ -68,13 +93,15 @@ function initializeApp() {
         });
     }
 
-    document.querySelectorAll(".nav-link").forEach(function(link) {
+    document.querySelectorAll(".nav-link").forEach(link => {
         link.addEventListener("click", function(event) {
             event.preventDefault();
 
-            const page = link.dataset.page;
+            const page = this.dataset.page;
 
-            changePage(page);
+            if (page) {
+                changePage(page);
+            }
         });
     });
 
