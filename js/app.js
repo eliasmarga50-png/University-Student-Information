@@ -7,6 +7,7 @@ import { renderAttendance } from "./pages/attendance.js";
 import { renderResults } from "./pages/results.js";
 import { renderFees } from "./pages/fees.js";
 import { renderLibrary } from "./pages/library.js";
+import { renderReports } from "./pages/reports.js";
 
 const pageTitles = {
     dashboard: "Dashboard",
@@ -17,12 +18,11 @@ const pageTitles = {
     results: "Results & Grades",
     fees: "Fees Management",
     library: "Library Management",
-    reports: "Reports"
+    reports: "Reports & Analytics"
 };
 
 function changePage(page) {
     const headerTitle = document.getElementById("header-title");
-    const pageContent = document.getElementById("page-content");
 
     headerTitle.textContent = pageTitles[page] || "Dashboard";
 
@@ -68,12 +68,7 @@ function changePage(page) {
             break;
 
         case "reports":
-            pageContent.innerHTML = `
-                <div class="placeholder-page">
-                    <h2>Reports</h2>
-                    <p>Reports module will be implemented in Commit 10.</p>
-                </div>
-            `;
+            renderReports();
             break;
 
         default:

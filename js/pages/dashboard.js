@@ -1,42 +1,49 @@
 
-import { students, courses, registrations, results, fees } from "../data/initialData.js";
+import {
+    students,
+    courses,
+    registrations,
+    results,
+    fees,
+    books,
+    borrowings
+} from "../data/initialData.js";
 
 export function renderDashboard() {
     const totalStudents = students.length;
     const totalCourses = courses.length;
     const totalRegistrations = registrations.length;
 
-    let outstandingFees = 0;
+    const outstandingFees = fees.reduce(
+        (sum, fee) => sum + Number(fee.balance || 0),
+        0
+    );
 
-    for (let i = 0; i < fees.length; i++) {
-        outstandingFees += fees[i].amount - fees[i].paid;
-    }
+    const totalMarks = results.reduce(
+        (sum, result) => sum + Number(result.total || 0),
+        0
+    );
 
-    let totalMarks = 0;
+    const averageMark = results.length > 0
+        ? totalMarks / results.length
+        : 0;
 
-    for (let i = 0; i < results.length; i++) {
-        totalMarks += results[i].mark;
-    }
+    const passedResults = results.filter(
+        result => Number(result.total) >= 50
+    ).length;
 
-    let averageMark = 0;
+    const passRate = results.length > 0
+        ? (passedResults / results.length) * 100
+        : 0;
 
-    if (results.length > 0) {
-        averageMark = totalMarks / results.length;
-    }
+    const totalBooks = books.reduce(
+        (sum, book) => sum + Number(book.copies || 0),
+        0
+    );
 
-    let passedStudents = 0;
-
-    for (let i = 0; i < results.length; i++) {
-        if (results[i].mark >= 50) {
-            passedStudents++;
-        }
-    }
-
-    let passRate = 0;
-
-    if (results.length > 0) {
-        passRate = (passedStudents / results.length) * 100;
-    }
+    const borrowedBooks = borrowings.filter(
+        borrowing => borrowing.status === "Borrowed"
+    ).length;
 
     const recentStudents = students.slice().reverse().slice(0, 5);
 
@@ -80,8 +87,8 @@ export function renderDashboard() {
             <div class="summary-card">
                 <div class="summary-icon">💰</div>
                 <div class="summary-info">
-                    <p>Outstanding Fees</p>
-                    <h3>$${outstandingFees.toFixed(2)}</h3>
+            <p>Outstanding Fees</p>
+                    <h3>${outstandingFees.toLocaleString()} ETB</h3>
                 </div>
             </div>
 
@@ -111,22 +118,30 @@ export function renderDashboard() {
                 </div>
 
                 <div class="overview-row">
-                    <span>Average Mark</span>
-                    <strong>${averageMark.toFixed(2)}</strong>
+                    <span>Average Score</span>
+                    <strong>${averageMark.toFixed(2)}%</strong>
                 </div>
 
                 <div class="overview-row">
                     <span>Pass Rate</span>
                     <strong>${passRate.toFixed(1)}%</strong>
                 </div>
+
+                <div class="overview-row">
+                    <span>Library Copies</span>
+                    <strong>${totalBooks}</strong>
+                </div>
+
+                <div class="overview-row">
+                    <span>Currently Borrowed</span>
+                    <strong>${borrowedBooks}</strong>
+                </div>
             </div>
 
         </div>
     `;
 
-    const resetButton = document.getElementById("reset-demo");
-
-    resetButton.addEventListener("click", function() {
+    document.getElementById("reset-demo").addEventListener("click", function() {
         location.reload();
     });
 }

@@ -1,4 +1,4 @@
-@import url("./variables.css");
+@import url("./variable.css");
 @import url("./layout.css");
 @import url("./dashboard.css");
 @import url("./students.css");
@@ -8,6 +8,7 @@
 @import url("./results.css");
 @import url("./fees.css");
 @import url("./library.css");
+@import url("./reports.css");
 
 * {
     margin: 0;
@@ -19,4 +20,38 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--page-bg);
     color: var(--text-primary);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+img {
+    max-width: 100%;
 }

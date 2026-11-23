@@ -1,0 +1,257 @@
+
+.reports-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reports-intro,
+.department-report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.reports-intro h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.reports-intro p,
+.department-report-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.export-report-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.export-report-btn:hover {
+    background: var(--primary-hover);
+}
+
+.reports-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.reports-section > h3,
+.department-report-header h3 {
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.report-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.report-stat-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.report-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 12px;
+    background: #dbeafe;
+    font-size: 21px;
+}
+
+.report-stat-card p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.report-stat-card h3 {
+    font-size: 21px;
+    overflow-wrap: anywhere;
+}
+
+.report-detail-card {
+    background: var(--card-bg);
+    padding: 22px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.report-detail-card h4 {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.report-progress-track {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.report-progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.report-detail-card > strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.report-detail-card > p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.grade-distribution-row {
+    display: grid;
+    grid-template-columns: 45px 1fr 35px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.grade-distribution-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.grade-distribution-track {
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.grade-distribution-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 20px;
+}
+
+.grade-distribution-row strong {
+    text-align: right;
+    font-size: 14px;
+}
+
+.department-report-header select,
+.department-report-header input {
+    min-width: 220px;
+    padding: 11px 13px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    outline: none;
+}
+
+.department-report-header select:focus,
+.department-report-header input:focus {
+    border-color: var(--primary-color);
+}
+
+.report-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.student-report-table {
+    min-width: 1000px;
+}
+
+.report-table th,
+.report-table td {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    font-size: 14px;
+}
+
+.report-table th {
+    background: #f9fafb;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.report-table td {
+    color: var(--text-primary);
+}
+
+.report-empty {
+    text-align: center !important;
+    padding: 30px !important;
+    color: var(--text-secondary) !important;
+}
+
+.report-record-count {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+@media (max-width: 1200px) {
+    .report-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .report-stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reports-intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .department-report-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .department-report-header select,
+    .department-report-header input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .report-detail-card {
+        padding: 16px;
+    }
+}
